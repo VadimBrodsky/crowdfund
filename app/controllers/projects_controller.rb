@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = ['Music Album', 'Hacker Keyboard', 'Text Editor', 'JavaScript MVC']
+    @projects = Project.all
   end
 end
