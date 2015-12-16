@@ -2,7 +2,9 @@
 
 <% @projects.each do |project| %>
     <article>
-        <h1><%= project.name %></h1>
+        <%= link_to(project_path(project)) do %>
+          <h1><%= project.name %></h1>
+        <% end %>
         <p> <%= truncate(project.description, length: 150, separator: ' ') %> </p>
         <dl>
             <dt>Price:</dt>
