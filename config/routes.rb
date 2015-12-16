@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root 'projects#index'
   get 'projects' => 'projects#index'
-  get 'projects/:id' => 'projects#show'
+  get 'projects/:id' => 'projects#show', as: 'project'
 end
