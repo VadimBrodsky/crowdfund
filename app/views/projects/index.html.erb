@@ -1,16 +1,16 @@
-<h1>Projects</h1>
+<h1><%= pluralize(@projects.count, 'Project') %></h1>
 
 <% @projects.each do |project| %>
     <article>
         <h1><%= project.name %></h1>
-        <p> <%= project.description %> </p>
+        <p> <%= truncate(project.description, length: 150, separator: ' ') %> </p>
         <dl>
             <dt>Price:</dt>
             <dd><%= number_to_currency(project.target_pledge_amount)  %></dd>
             <dt>Website:</dt>
             <dd><%= project.website %></dd>
             <dt>Pleding Ends On:</dt>
-            <dd><%= project.pledging_ends_on %></dd>
+            <dd><%= format_end_date(project) %></dd>
         </dl>
     </article>
 <% end %>
