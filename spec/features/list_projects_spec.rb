@@ -17,6 +17,11 @@ describe 'Viewing the list of projects' do
     website: 'http://www.adock.com',
     pledging_ends_on: 3.days.ago)
 
+  it 'shows the number of projects' do
+    visit projects_url
+
+    expect(page).to have_text("#{Project.count} Projects")
+  end
 
   it 'shows the names' do
     visit projects_url
