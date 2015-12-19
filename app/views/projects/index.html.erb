@@ -2,6 +2,11 @@
 
 <ul>
     <% @projects.each do |project| %>
-        <li><%= project %></li>
+        <li><%= project.name %></li>
+        <li><%= truncate(project.description, length: 20, separator: ' ') %></li>
+        <li><%= number_to_currency(project.target_pledge_amount) %></li>
+        <li><%= project.website %></li>
+        <li><%= project.pledging_ends_on %></li>
+
     <% end %>
 </ul>
