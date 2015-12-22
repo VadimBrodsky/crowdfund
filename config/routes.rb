@@ -55,4 +55,5 @@ Rails.application.routes.draw do
   #   end
   root 'projects#index'
   get 'projects' => 'projects#index'
+  get 'projects/:id' => 'projects#show', as: 'project'
 end
