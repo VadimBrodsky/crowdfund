@@ -1,8 +1,10 @@
 describe 'Viewing the list of projects' do
   before(:all) do
     @project1 = Project.create(project_attributes(
+                                 pledging_ends_on: 3.days.from_now,
                                  target_pledge_amount: 30_000.00))
     @project2 = Project.create(project_attributes(
+                                 pledging_ends_on: 5.days.from_now,
                                  target_pledge_amount: 200_000.00))
     @project3 = Project.create(project_attributes(
                                  pledging_ends_on: 3.days.ago,
@@ -55,8 +57,8 @@ describe 'Viewing the list of projects' do
   it 'shows the end date for pledging' do
     visit projects_url
 
-    expect(page).to have_text(@project1.pledging_ends_on)
-    expect(page).to have_text(@project2.pledging_ends_on)
-    expect(page).to have_text(@project3.pledging_ends_on)
+    expect(page).to have_text('3 days remaining')
+    expect(page).to have_text('5 days remaning')
+    expect(page).to have_text('All Done!')
   end
 end
