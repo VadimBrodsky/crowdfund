@@ -14,7 +14,7 @@ describe 'Navigating projects' do
     expect(current_url).to eq(projects_url)
   end
 
-  it 'allows navigation from the listing page to the detial page' do
+  it 'allows navigation from the listing page to the detail page' do
     visit projects_url
     click_link @project.name
 
