@@ -58,7 +58,7 @@ describe 'Viewing the list of projects' do
     visit projects_url
 
     expect(page).to have_text('3 days remaining')
-    expect(page).to have_text('5 days remaning')
+    expect(page).to have_text('5 days remaining')
     expect(page).to have_text('All Done!')
   end
 end
