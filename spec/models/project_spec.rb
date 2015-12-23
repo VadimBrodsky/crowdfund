@@ -10,4 +10,10 @@ describe 'A project' do
 
     expect(project.ended?).to eq(false)
   end
+
+  it 'has expired if the pledging ends value is nil or balnk' do
+    project = Project.new(pledging_ends_on: nil)
+
+    expect(project.ended?).to eq(true)
+  end
 end
