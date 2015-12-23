@@ -8,6 +8,6 @@
     <ul>
         <li><strong>Target Pledge Amount: </strong><%= number_to_currency(project.target_pledge_amount) %></li>
         <li><strong>Project Website: </strong><%= project.website %></li>
-        <li><strong>Pledge Ends On: </strong><%= project.pledging_ends_on %></li>
+        <li><strong>Pledge Ends On: </strong><%= format_date(project) %></li>
     </ul>
 <% end %>
