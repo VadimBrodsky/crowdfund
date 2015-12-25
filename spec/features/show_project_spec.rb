@@ -45,4 +45,10 @@ describe 'Viewing an individual project' do
 
     expect(page).to have_text('All Done!')
   end
+
+  it 'shows the edit button on the project listing' do
+    visit project_path(@project)
+
+    expect(page).to have_text('Edit Project')
+  end
 end

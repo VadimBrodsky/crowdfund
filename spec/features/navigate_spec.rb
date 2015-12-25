@@ -20,4 +20,11 @@ describe 'Navigating projects' do
 
     expect(current_url).to eq(project_url(@project))
   end
+
+  it 'allows navigation from the detail page to the edit page' do
+    visit project_url(@project)
+    click_link 'Edit Project'
+
+    expect(current_url).to eq(edit_project_url(@project))
+  end
 end
