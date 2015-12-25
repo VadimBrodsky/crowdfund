@@ -1,0 +1,27 @@
+<h1>Edit Project: <%= @project.name %></h1>
+
+<%= form_for @project do |f| %>
+<table>
+    <tr>
+        <td><%= f.label :name %> </td>
+        <td><%= f.text_field :name %> </td>
+    </tr>
+    <tr>
+        <td><%= f.label :description %> </td>
+        <td><%= f.text_area :description, rows: 5, cols: 31 %></td>
+    </tr>
+    <tr>
+        <td><%= f.label :target_pledge_amount %> </td>
+        <td><%= f.number_field :target_pledge_amount %></td>
+    </tr>
+    <tr>
+        <td><%= f.label :website %></td>
+        <td><%= f.text_field :website %></td>
+    </tr>
+    <tr>
+        <td><%= f.label :pledging_ends_on %></td>
+        <td><%= f.date_select :pledging_ends_on %></td>
+    </tr>
+</table>
+<%= f.submit %>
+<% end %>
