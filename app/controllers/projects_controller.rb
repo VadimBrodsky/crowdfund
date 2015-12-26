@@ -18,5 +18,6 @@ class ProjectsController < ApplicationController
       :name, :description, :target_pledge_amount, :website, :pleding_ends_on
     )
     @project.update(allowed_params)
+    redirect_to project_path(@project)
   end
 end
