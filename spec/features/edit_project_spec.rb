@@ -15,7 +15,9 @@ describe 'Editing a project' do
     expect(find_field('Description').value).to eq(@project.description)
     expect(find_field('Target pledge amount').value).to eq(@project.target_pledge_amount.to_s)
     expect(find_field('Website').value).to eq(@project.website)
-    # expect(find_field('Pledging ends on').value).to eq(@project.pledging_ends_on)
+    expect(find_field('project[pledging_ends_on(1i)]').value).to eq(@project.pledging_ends_on.year.to_s)
+    expect(find_field('project[pledging_ends_on(2i)]').value).to eq(@project.pledging_ends_on.month.to_s)
+    expect(find_field('project[pledging_ends_on(3i)]').value).to eq(@project.pledging_ends_on.day.to_s)
   end
 
   it 'updates the project shows the updated details' do
