@@ -10,4 +10,13 @@ class ProjectsController < ApplicationController
   def edit
     @project = Project.find(params[:id])
   end
+
+  def update
+    # fail
+    @project = Project.find(params[:id])
+    allowed_params = params.require(:project).permit(
+      :name, :description, :target_pledge_amount, :website, :pleding_ends_on
+    )
+    @project.update(allowed_params)
+  end
 end
