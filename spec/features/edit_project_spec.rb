@@ -18,7 +18,13 @@ describe 'Editing a project' do
     # expect(find_field('Pledging ends on').value).to eq(@project.pledging_ends_on)
   end
 
-  it 'updates the project'
+  it 'updates the project shows the updated details' do
+    visit edit_project_url(@project)
+    fill_in 'Name', with: 'Updated Project Title'
+    click_button 'Update Project'
 
-  it "shows the project's updated details"
+    expect(current_path).to eq(project_path(@project))
+    expect(page).to have_text('Updated Project Title')
+  end
+
 end
