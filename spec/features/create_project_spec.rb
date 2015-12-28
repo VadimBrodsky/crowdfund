@@ -13,6 +13,7 @@ describe 'Createing a project' do
 
   it 'creates the project and shows it' do
     project = Project.create(project_attributes)
+
     visit new_project_url
 
     fill_in 'Name', with: project.name
