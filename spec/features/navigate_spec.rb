@@ -14,6 +14,13 @@ describe 'Navigating projects' do
     expect(current_url).to eq(projects_url)
   end
 
+  it 'allows navigation from the listing page to the new page' do
+    visit projects_url
+    click_link 'Add New Project'
+
+    expect(current_url).to eq(create_project_url)
+  end
+
   it 'allows navigation from the listing page to the detail page' do
     visit projects_url
     click_link @project.name
