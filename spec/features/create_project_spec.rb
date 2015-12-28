@@ -22,9 +22,8 @@ describe 'Createing a project' do
 
     click_button 'Create Project'
 
-    expect(current_path).to eq(project_path)
+    expect(current_path).to eq(project_path(Project.last))
     expect(page).to have_text(project.name)
     expect(page).to have_text(project.description)
-    expect(page).to have_text(project.target_pledge_amount)
   end
 end
