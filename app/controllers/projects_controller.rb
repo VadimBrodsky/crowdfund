@@ -20,4 +20,8 @@ class ProjectsController < ApplicationController
     @project.update(allowed_params)
     redirect_to project_path(@project)
   end
+
+  def new
+    @project = Project.new
+  end
 end
