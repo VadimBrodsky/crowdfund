@@ -1,6 +1,6 @@
 describe 'Deleting a project' do
   before(:all) do
-    @project = Project.create(project_attributes)
+    @project = Project.create(project_attributes(name: 'Test Project'))
   end
 
   it 'shows the destroy button on the destory page' do
