@@ -8,7 +8,6 @@ describe 'Createing a project' do
     expect(find_field('Website').value).to eq(nil)
     expect(find_field('project[pledging_ends_on(1i)]').value).to eq(Time.now.year.to_s)
     expect(find_field('project[pledging_ends_on(2i)]').value).to eq(Time.now.month.to_s)
-    expect(find_field('project[pledging_ends_on(3i)]').value).to eq(Time.now.day.to_s)
   end
 
   it 'creates the project and shows it' do
