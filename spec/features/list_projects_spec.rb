@@ -7,6 +7,7 @@ describe 'Viewing the list of projects' do
                                  pledging_ends_on: 5.days.from_now,
                                  target_pledge_amount: 200_000.00))
     @project3 = Project.create(project_attributes(
+                                 name: 'TOO LATE',
                                  pledging_ends_on: 3.days.ago,
                                  target_pledge_amount: 100_000.00))
   end
