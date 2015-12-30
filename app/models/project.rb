@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   end
 
   def self.active
-    where('pledging_ends_on >= ?', Time.now).order(pledging_ends_on: :asc)
+    where('pledging_ends_on >= ?', Time.now)
+      .order(pledging_ends_on: :asc).order(target_pledge_amount: :desc)
   end
 end
