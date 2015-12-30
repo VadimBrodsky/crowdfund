@@ -62,5 +62,5 @@ describe 'Viewing the list of projects' do
     expect(page).not_to have_text(@project3.name)
     expect(page).not_to have_text(@project3.description)
     expect(page).not_to have_text(@project3.website)
-  end 
+  end
 end
