@@ -17,9 +17,23 @@ describe 'A project' do
     expect(project.ended?).to eq(true)
   end
 
-  it 'is expired when the pledging date is in the past'
+  it 'is expired when the pledging date is in the past' do
+    project = Project.create(project_attributes(pledging_ends_on: 3.days.ago))
 
-  it 'is active when the pledign date is in the future'
+    expect(Project.active).not_to include(project)
+  end
 
-  it 'return the projects in the order of ending-first'
+  it 'is active when the pledging date is in the future' do
+    project = Project.create(project_attributes(pledging_ends_on: 3.days.from_now))
+
+    expect(Project.active).to include(project)
+  end
+
+  it 'return the projects in the order of ending-first' do
+    project1 = Project.create(project_attributes(pledging_ends_on: 9.days.from_now))
+    project2 = Project.create(project_attributes(pledging_ends_on: 6.days.from_now))
+    project3 = Project.create(project_attributes(pledging_ends_on: 3.days.from_now))
+
+    expect(Project.active).to eq([project3, project2, project1])
+  end
 end
