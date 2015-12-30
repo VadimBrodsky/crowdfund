@@ -15,6 +15,13 @@ Project.create!([
     pledging_ends_on: 20.days.from_now
   },
   {
+    name: 'Music Video the SQL',
+    description: 'Super aweome music video II',
+    target_pledge_amount: 50000.00,
+    website: 'http://www.music.video',
+    pledging_ends_on: 20.days.from_now
+  },
+  {
     name: 'Ultimate Hacking Keyboard',
     description: 'Mechanical switches for the hackers',
     target_pledge_amount: 200_000.00,
