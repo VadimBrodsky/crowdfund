@@ -18,8 +18,7 @@ describe 'Viewing the list of projects' do
   it 'shows the number of projects' do
     visit projects_url
 
-    # expect(page).to have_text("#{Project.count} Projects")
-    expect(page).to have_text('3 Projects')
+    expect(page).to have_text('2 Projects')
   end
 
   it 'shows the names' do
@@ -27,7 +26,6 @@ describe 'Viewing the list of projects' do
 
     expect(page).to have_text(@project1.name)
     expect(page).to have_text(@project2.name)
-    expect(page).to have_text(@project3.name)
   end
 
   it 'shows the description truncated' do
@@ -35,7 +33,6 @@ describe 'Viewing the list of projects' do
 
     expect(page).to have_text(@project1.description[0..10])
     expect(page).to have_text(@project2.description[0..10])
-    expect(page).to have_text(@project3.description[0..10])
   end
 
   it 'shows the target pledge amount in dollars' do
@@ -43,7 +40,6 @@ describe 'Viewing the list of projects' do
 
     expect(page).to have_text('$30,000.00')
     expect(page).to have_text('$200,000.00')
-    expect(page).to have_text('$100,000.00')
   end
 
   it 'shows the website adderss' do
@@ -51,7 +47,6 @@ describe 'Viewing the list of projects' do
 
     expect(page).to have_text(@project1.website)
     expect(page).to have_text(@project2.website)
-    expect(page).to have_text(@project3.website)
   end
 
   it 'shows the end date for pledging' do
@@ -59,6 +54,13 @@ describe 'Viewing the list of projects' do
 
     expect(page).to have_text('3 days remaining')
     expect(page).to have_text('5 days remaining')
-    expect(page).to have_text('All Done!')
   end
+
+  it 'does not show a project that is not longer accepting pledges' do
+    visit(projects_path)
+
+    expect(page).not_to have_text(@project3.name)
+    expect(page).not_to have_text(@project3.description)
+    expect(page).not_to have_text(@project3.website)
+  end 
 end
