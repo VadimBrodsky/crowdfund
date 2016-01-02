@@ -59,10 +59,16 @@ describe 'Viewing the list of projects' do
   end
 
   it 'does not show a project that is not longer accepting pledges' do
-    visit(projects_path)
+    visit projects_path
 
     expect(page).not_to have_text(@project3.name)
     expect(page).not_to have_text(@project3.description)
     expect(page).not_to have_text(@project3.website)
+  end
+
+  it 'shows the project image' do
+    visit projects_url
+
+    expect(page).to have_selector("img[src$='#{@project3.image_file_name}']")
   end
 end
