@@ -51,4 +51,16 @@ describe 'Viewing an individual project' do
 
     expect(page).to have_text('Edit Project')
   end
+
+  it 'shows the project team members' do
+    visit project_path(@project)
+
+    expect(page).to have_text(@project.team_members)
+  end
+
+  it 'shows the project image' do
+    visit project_path(@project)
+
+    expect(page).to have_selector("img[src$='#{project.image_file_name}']")
+  end
 end
