@@ -8,6 +8,7 @@ describe 'Viewing the list of projects' do
                                  target_pledge_amount: 200_000.00))
     @project3 = Project.create(project_attributes(
                                  name: 'TOO LATE',
+                                 website: 'http://www.toolate.com',
                                  pledging_ends_on: 3.days.ago,
                                  target_pledge_amount: 100_000.00))
   end
