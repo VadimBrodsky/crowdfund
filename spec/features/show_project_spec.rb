@@ -61,6 +61,6 @@ describe 'Viewing an individual project' do
   it 'shows the project image' do
     visit project_path(@project)
 
-    expect(page).to have_selector("img[src$='#{project.image_file_name}']")
+    expect(page).to have_selector("img[src$='#{@project.image_file_name}']")
   end
 end
