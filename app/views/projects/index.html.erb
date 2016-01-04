@@ -1,11 +1,9 @@
 <h1><%= pluralize(@projects.count, 'Project') %></h1>
 
-<%= link_to 'Add New Project', new_project_path %>
-
 <% @projects.each do |project| %>
         <h2><%= link_to project.name, project_path(project) %></h2>
+        <h3><%= image_for(project) %></h3>
         <p>
-            <%= image_for(project) %>
             <%= truncate(project.description, length: 20, separator: ' ') %>
         </p>
     <ul>
