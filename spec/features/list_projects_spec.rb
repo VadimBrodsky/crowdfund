@@ -44,13 +44,6 @@ describe 'Viewing the list of projects' do
     expect(page).to have_text('$200,000.00')
   end
 
-  it 'shows the website adderss' do
-    visit projects_url
-
-    expect(page).to have_text(@project1.website)
-    expect(page).to have_text(@project2.website)
-  end
-
   it 'shows the end date for pledging' do
     visit projects_url
 
