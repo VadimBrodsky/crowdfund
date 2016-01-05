@@ -1,23 +1,27 @@
-<article>
-    <h1><%= @project.name %></h1>
-    <%= image_for @project %>
+<article id="project" class="project">
+    <header>
+        <%= image_for @project %>
+        <h1><%= @project.name %></h1>
+        <h2><%= format_date(@project) %></h2>
+    </header>
 
     <p><%= @project.description %></p>
 
-    <h2>Team Members</h2>
-    <p><%= @project.team_members %></p>
-
-    <h2>Traget Pledge Amount</h2>
+    <h3>Traget Pledge Amount</h3>
     <p><%= number_to_currency(@project.target_pledge_amount) %></p>
 
-    <h2>Website</h2>
+    <h3>Website</h3>
     <p><%= @project.website %></p>
 
-    <h3>Pledging Ends</h3>
-    <p><%= format_date(@project) %></p>
-</article>
+    <h3>Team Members</h3>
+    <p><%= @project.team_members %></p>
 
-<nav>
-    <%= link_to 'Edit Project', edit_project_path %> |
-    <%= link_to 'Delete Project', project_path(@project), method: :delete, data: {confirm: 'Are you sure you want to delete this project?'} %>
-</nav>
+    <footer>
+        <nav>
+            <%= link_to 'Edit Project', edit_project_path, class: 'button' %>
+            <%= link_to 'Delete Project', project_path(@project),
+                class: 'button',
+                method: :delete, data: {confirm: 'Are you sure you want to delete this project?'} %>
+        </nav>
+    </footer>
+</article>

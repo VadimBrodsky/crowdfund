@@ -1,33 +1,38 @@
 <%= form_for @project do |f| %>
-<table>
-    <tr>
-        <td><%= f.label :name %></td>
-        <td><%= f.text_field :name, autofocus: true %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :description %></td>
-        <td><%= f.text_area :description, rows: 5, cols: 31 %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :team_members %></td>
-        <td><%= f.text_field :team_members %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :target_pledge_amount %></td>
-        <td><%= f.number_field :target_pledge_amount %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :website %></td>
-        <td><%= f.text_field :website %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :image_file_name %></td>
-        <td><%= f.text_field :image_file_name %></td>
-    </tr>
-    <tr>
-        <td><%= f.label :pledging_ends_on %></td>
-        <td><%= f.date_select :pledging_ends_on %></td>
-    </tr>
-</table>
-<%= f.submit %> | <%= link_to 'Cancel', projects_path %>
+    <fieldset>
+        <ol>
+            <li class="required">
+                <%= f.label :name %>
+                <%= f.text_field :name, autofocus: true %>
+            </li>
+            <li class="required">
+                <%= f.label :description %>
+                <%= f.text_area :description, rows: 5, cols: 31 %>
+            </li>
+            <li class="required">
+                <%= f.label :pledging_ends_on %>
+                <%= f.date_select :pledging_ends_on %>
+            </li>
+            <li class="required">
+                <%= f.label :target_pledge_amount %>
+                <%= f.number_field :target_pledge_amount %>
+            </li>
+            <li class="required">
+                <%= f.label :website %>
+                <%= f.text_field :website %>
+            </li>
+            <li class="required">
+                <%= f.label :team_members %>
+                <%= f.text_field :team_members %>
+            </li>
+            <li class="required">
+                <%= f.label :image_file_name %>
+                <%= f.text_field :image_file_name, size: 30, placeholder: 'GIF, JPG, or PNG file name' %>
+            </li>
+        </ol>
+        <p>
+            <%= f.submit %>
+            <%= link_to 'Cancel', projects_path, class: 'button' %>
+        </p>
+    </fieldset>
 <% end %>
