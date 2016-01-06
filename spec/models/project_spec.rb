@@ -36,4 +36,24 @@ describe 'A project' do
 
     expect(Project.active).to eq([project3, project2, project1])
   end
+
+  it 'requires a name'
+
+  it 'requires a description'
+
+  it 'accepts a description up to 500 characters'
+
+  it 'accepts a positive target pledge amount'
+
+  it 'rejects a $0 target pledge amount'
+
+  it 'rejects a negative target pledge amount'
+
+  it 'accepts properly formatted website URLs'
+
+  it 'rejects improperly formatted website URLs'
+
+  it 'accepts properly formatted image file names'
+
+  it 'rejects improperly formatted image file names'
 end
