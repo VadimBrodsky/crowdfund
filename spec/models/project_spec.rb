@@ -37,23 +37,79 @@ describe 'A project' do
     expect(Project.active).to eq([project3, project2, project1])
   end
 
-  it 'requires a name'
+  it 'requires a name' do
+    project = Project.new(name: '')
+    project.valid?
+    expect(project.errors[:name].any?).to eq(true)
+  end
 
-  it 'requires a description'
+  it 'requires a description' do
+    project = Project.new(description: '')
+    project.valid?
+    expect(project.errors[:description].any?).to eq(true)
+  end
 
-  it 'accepts a description up to 500 characters'
+  it 'accepts a description up to 500 characters' do
+    long_description = 'x' * 501
+    project = Project.new(description: long_description)
+    project.valid?
+    expect(project.errors[:description].any?).to eq(true)
+  end
 
-  it 'accepts a positive target pledge amount'
+  it 'accepts a positive target pledge amount' do
+    target_pledge_amounts = [100.00, 200_000_000, 12, '1000']
+    target_pledge_amounts.each do |amount|
+      project = Project.new(target_pledge_amount: amount)
+      project.valid?
+      expect(project.errors[:target_pledge_amount].any?).to eq(false)
+    end
+  end
 
-  it 'rejects a $0 target pledge amount'
+  it 'rejects a $0 target pledge amount' do
+    project = Project.new(target_pledge_amount: 0)
+    project.valid?
+    expect(project.errors[:target_pledge_amount].any?).to eq(true)
+  end
 
-  it 'rejects a negative target pledge amount'
+  it 'rejects a negative target pledge amount' do
+    project = Project.new(target_pledge_amount: -100)
+    project.valid?
+    expect(project.errors[:target_pledge_amount].any?).to eq(true)
+  end
 
-  it 'accepts properly formatted website URLs'
+  it 'accepts properly formatted website URLs' do
+    urls = %w(http://www.example.com http://WEBSITE.CA http://awesome.webpage.co.il https://ex.ca)
+    urls.each do |url|
+      project = Project.new(website: url)
+      project.valid?
+      expect(project.errors[:website].any?).to eq(false)
+    end
+  end
 
-  it 'rejects improperly formatted website URLs'
+  it 'rejects improperly formatted website URLs' do
+    urls = %w(www.website.com http://nospaces illegal,marks examplehttp)
+    urls.each do |url|
+      project = Project.new(website: url)
+      project.valid?
+      expect(project.errors[:website].any?).to eq(false)
+    end
+  end
 
-  it 'accepts properly formatted image file names'
+  it 'accepts properly formatted image file names' do
+    files = %w(file.jpg image.png PICTURE.PNG e.gif EVENT.GIF)
+    files.each do |img|
+      project = Project.new(image_file_name: img)
+      project.valid?
+      expect(project.errros[:image_file_name].any?).to eq(false)
+    end
+  end
 
-  it 'rejects improperly formatted image file names'
+  it 'rejects improperly formatted image file names' do
+    files = %w(event .jpg .png .gif event.pdf event.doc)
+    files.each do |file|
+      project = Project.new(image_file_name: file)
+      project.valid?
+      expect(project.errors[:project_file_name].any?).to eq(true)
+    end
+  end
 end
