@@ -28,3 +28,12 @@ def project_attributes(overrides = {})
     pledging_ends_on: SAMPLE_DATA[:ends].sample.days.from_now
   }.merge(overrides)
 end
+
+def pledge_attributes(overrides = {})
+  {
+    name: 'Bill Gates',
+    email: 'bill@gatesfoundation.com',
+    amount: 500.00,
+    comment: 'I love everything!'
+  }
+end

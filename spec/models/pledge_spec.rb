@@ -1,7 +1,7 @@
 describe 'A pledge' do
   it 'belongs to a project' do
     project = Project.create(project_attributes)
-    pledge = project.pledge.new(pledge_attributes)
+    pledge = project.pledges.new(pledge_attributes)
     expect(pledge.project).to eq(project)
   end
 
