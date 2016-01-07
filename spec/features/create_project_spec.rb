@@ -29,4 +29,11 @@ describe 'Createing a project' do
     expect(page).to have_text(project.name)
     expect(page).to have_text(project.description)
   end
+
+  it 'does not save the project if is\'s invalid' do
+    visit new_project_url
+
+    expect { click_button 'Create Project' }.not_to change(Project, :count)
+    expect(page).to have_text('error')
+  end
 end
