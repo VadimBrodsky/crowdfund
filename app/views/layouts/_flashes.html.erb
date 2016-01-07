@@ -1,0 +1,3 @@
+<% flash.each do |key, val| %>
+    <%= content_tag :p, val, class: "flash #{key}"  %>
+<% end %>
