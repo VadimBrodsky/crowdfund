@@ -1,5 +1,5 @@
 describe 'A project' do
-  it 'has expired if the pleding ends on date is in the past' do
+  it 'has expired if the pledging ends on date is in the past' do
     project = Project.create(pledging_ends_on: 5.days.ago)
 
     expect(project.ended?).to eq(true)
@@ -91,7 +91,7 @@ describe 'A project' do
     urls.each do |url|
       project = Project.new(website: url)
       project.valid?
-      expect(project.errors[:website].any?).to eq(false)
+      expect(project.errors[:website].any?).to eq(true)
     end
   end
 
@@ -100,7 +100,7 @@ describe 'A project' do
     files.each do |img|
       project = Project.new(image_file_name: img)
       project.valid?
-      expect(project.errros[:image_file_name].any?).to eq(false)
+      expect(project.errors[:image_file_name].any?).to eq(false)
     end
   end
 
@@ -109,7 +109,7 @@ describe 'A project' do
     files.each do |file|
       project = Project.new(image_file_name: file)
       project.valid?
-      expect(project.errors[:project_file_name].any?).to eq(true)
+      expect(project.errors[:image_file_name].any?).to eq(true)
     end
   end
 end
