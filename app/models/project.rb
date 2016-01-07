@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
       message: 'must reference a GIF, JPG, or PNG image'
     }
 
-  has_many :pledges
+  has_many :pledges, dependent: :destroy
 
   def ended?
     pledging_ends_on.blank? || pledging_ends_on < Time.now

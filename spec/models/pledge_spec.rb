@@ -47,7 +47,7 @@ describe 'A pledge' do
   it 'rejects invalid amounts' do
     amounts = [-10.00, 0.00, 13.00]
     amounts.each do |amount|
-      pledge = Pledge.bew(amount: amount)
+      pledge = Pledge.new(amount: amount)
       pledge.valid?
       expect(pledge.errors[:amount].any?).to eq(true)
     end
