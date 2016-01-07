@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   validates :website, allow_blank: true, format:
     {
       with: /htt(p|ps)(:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/i,
-      message: 'must be a valid'
+      message: 'must be valid'
     }
   validates :image_file_name, allow_blank: true, format:
     {
