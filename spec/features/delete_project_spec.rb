@@ -21,5 +21,6 @@ describe 'Deleting a project' do
 
     expect(current_url).to eq(projects_url)
     expect(page).not_to have_text(@project.name)
+    expect(page).to have_text('Project Successfully Deleted!')
   end
 end

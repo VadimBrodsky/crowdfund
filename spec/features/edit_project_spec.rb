@@ -27,6 +27,7 @@ describe 'Editing a project' do
 
     expect(current_path).to eq(project_path(@project))
     expect(page).to have_text('Updated Project Title')
+    expect(page).to have_text('Project Successfully Updated!')
   end
 
   it 'does not update the project if it\'s invalid' do

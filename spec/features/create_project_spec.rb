@@ -28,6 +28,7 @@ describe 'Createing a project' do
     expect(current_path).to eq(project_path(Project.last))
     expect(page).to have_text(project.name)
     expect(page).to have_text(project.description)
+    expect(page).to have_text('Project Successfully Created!')
   end
 
   it 'does not save the project if is\'s invalid' do
