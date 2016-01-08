@@ -5,7 +5,7 @@ class Pledge < ActiveRecord::Base
   validates :amount, inclusion: { in: AMOUNT_LEVELS }
   validates :email, format:
     {
-      with: /([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})/i
+      with: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i
     }
 
   belongs_to :project
