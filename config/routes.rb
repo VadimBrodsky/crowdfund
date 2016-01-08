@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pledges
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,11 +55,7 @@ Rails.application.routes.draw do
   #   end
 
   root 'projects#index'
-
-  # get 'projects' => 'projects#index'
-  # get 'projects/:id' => 'projects#show', as: 'project'
-  # get 'projects/:id/edit' => 'projects#edit', as: 'edit_project'
-  # patch 'projects/:id' => 'projects#update'
-  resources :projects
-
+  resources :projects do
+    resources :pledges
+  end
 end
