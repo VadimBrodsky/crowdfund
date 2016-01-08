@@ -62,3 +62,10 @@ Project.create!([
     image_file_name: 'project-f.png'
   }
 ])
+
+Project.first.pledges.create!(
+  [
+    { name: 'Bill Gates', email: 'Bill@Gatesfoundation.com', amount: 200.00, comment: 'I like to invest!' },
+    { name: 'Warren Buffet', email: 'wbuf@hbb.com', amount: 100.00, comment: 'I invest only in what I understand' },
+    { name: 'Mark Zuckerberg', email: 'mark@fb.com', amount: 50.00, comment: 'Facebook FTW' }
+  ])

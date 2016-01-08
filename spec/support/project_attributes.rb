@@ -35,5 +35,5 @@ def pledge_attributes(overrides = {})
     email: 'bill@gatesfoundation.com',
     amount: 500.00,
     comment: 'I love everything!'
-  }
+  }.merge(overrides)
 end
