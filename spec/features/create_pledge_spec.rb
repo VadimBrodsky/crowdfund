@@ -8,9 +8,9 @@ describe 'Creating a new pledge' do
 
     fill_in 'Name', with: 'Scrooge McDuck'
     fill_in 'Email', with: 'scrooge@mcduck.com'
-    select '100.00', from: 'pledge_amount'
+    select '100.0', from: 'pledge_amount'
     fill_in 'Comment', with: 'No man is poor who can do what he likes to do once in a while!'
-    click_link 'Create Pledge'
+    click_button 'Create Pledge'
 
     expect(current_url).to eq(project_pledges_url(project))
     expect(page).to have_text('Scrooge McDuck')
