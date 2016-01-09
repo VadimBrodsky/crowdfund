@@ -1,0 +1,28 @@
+<header>
+    <h1>Pledge for <%= link_to @project.name, @project %></h1>
+</header>
+
+<%= form_for [@project, @pledge] do |f| %>
+    <fieldset>
+        <ol>
+            <li>
+                <%= f.label :name %>
+                <%= f.text_field :name %>
+            </li>
+            <li>
+                <%= f.label :email %>
+                <%= f.text_field :email %>
+            </li>
+            <li>
+                <%= f.label :amount %>
+                <%= f.select :amount, Pledge::AMOUNT_LEVELS %>
+            </li>
+            <li>
+                <%= f.label :comment %>
+                <%= f.text_area :comment %>
+            </li>
+        </ol>
+        <%= f.submit %>
+        <%= link_to 'Cancel', project_path(@project), class: 'button' %>
+    </fieldset>
+<% end %>
