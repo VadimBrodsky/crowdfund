@@ -4,25 +4,28 @@
 
 <%= form_for [@project, @pledge] do |f| %>
     <fieldset>
+        <%= render 'shared/errors', object: @pledge %>
         <ol>
-            <li>
+            <li class="required">
                 <%= f.label :name %>
                 <%= f.text_field :name %>
             </li>
-            <li>
+            <li class="required">
                 <%= f.label :email %>
                 <%= f.text_field :email %>
-            </li>
-            <li>
+            </li class="required">
+            <li class="required">
                 <%= f.label :amount %>
-                <%= f.select :amount, Pledge::AMOUNT_LEVELS %>
+                <%= f.select :amount, Pledge::AMOUNT_LEVELS, prompt: 'Pick One' %>
             </li>
             <li>
                 <%= f.label :comment %>
                 <%= f.text_area :comment %>
             </li>
         </ol>
-        <%= f.submit %>
-        <%= link_to 'Cancel', project_path(@project), class: 'button' %>
+        <p>
+            <%= f.submit %>
+            <%= link_to 'Cancel', project_path(@project), class: 'button' %>
+        </p>
     </fieldset>
 <% end %>
