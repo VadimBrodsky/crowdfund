@@ -16,12 +16,24 @@ class Project < ActiveRecord::Base
 
   has_many :pledges, dependent: :destroy
 
+  def self.active
+    where('pledging_ends_on >= ?', Time.now)
+      .order(pledging_ends_on: :asc).order(target_pledge_amount: :desc)
+  end
+
   def ended?
     pledging_ends_on.blank? || pledging_ends_on < Time.now
   end
 
-  def self.active
-    where('pledging_ends_on >= ?', Time.now)
-      .order(pledging_ends_on: :asc).order(target_pledge_amount: :desc)
+  def total_amount_pledged
+    pledges.sum(:amount)
+  end
+
+  def amount_outstanding
+    target_pledge_amount - total_amount_pledged
+  end
+
+  def funded?
+    target_pledge_amount <= total_amount_pledged
   end
 end

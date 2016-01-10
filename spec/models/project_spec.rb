@@ -148,6 +148,7 @@ describe 'A project' do
     project = Project.create(project_attributes(target_pledge_amount: 30.00))
     project.pledges.create(pledge_attributes(amount: 30.01))
 
+    puts project.amount_outstanding.to_s
     expect(project.funded?).to eq(true)
   end
 
