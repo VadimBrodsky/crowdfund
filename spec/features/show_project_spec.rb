@@ -63,4 +63,8 @@ describe 'Viewing an individual project' do
 
     expect(page).to have_selector("img[src$='#{@project.image_file_name}']")
   end
+
+  it 'shows the amount outstanding with a pledge link if the project is not funded'
+
+  it "shows 'Funded' without a pledge link if the project is funded"
 end
