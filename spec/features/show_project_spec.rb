@@ -69,7 +69,7 @@ describe 'Viewing an individual project' do
     visit project_path(@project)
 
     expect(page).to have_link('Pledge!')
-    expect(page).to have_link('75.00')
+    expect(page).to have_link('Only $75.00 left!')
     expect(page).not_to have_text('Funded!')
   end
 
